@@ -8,10 +8,9 @@ import 'screens/home_screen.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => ShopList(),
-      child: MyApp(),
-    ),
+//give MyApp as child of Provider 
+      MyApp(),
+    
   );
 }
 
