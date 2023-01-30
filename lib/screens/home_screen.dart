@@ -2,6 +2,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../providers/provider_shop.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -19,35 +21,35 @@ class HomeScreen extends StatelessWidget {
                 Navigator.pushNamed(context, '/shopList');
               },
               icon:
-                  // context.read<ShopList>().cartCount == 0
-                  //     ?
+                  context.read<ShopList>().cartCount == 0
+                  ?
                   Icon(
                 CupertinoIcons.cart,
                 size: 30,
               )
-              // : Stack(
-              //     children: [
-              //       Icon(
-              //         CupertinoIcons.cart,
-              //         size: 30,
-              //       ),
-              //       Positioned(
-              //         child: CircleAvatar(
-              //           radius: 8,
-              //           backgroundColor: Colors.red,
-              //           child:
-              //               Text('${context.watch<ShopList>().cartCount}',
-              //                   style: TextStyle(
-              //                     fontSize: 10,
-              //                     fontWeight: FontWeight.w600,
-              //                   )),
-              //         ),
-              //         left: 15,
-              //         top: 0,
-              //         bottom: 12,
-              //       ),
-              //     ],
-              //   )
+              : Stack(
+                  children: [
+                    Icon(
+                      CupertinoIcons.cart,
+                      size: 30,
+                    ),
+                    Positioned(
+                      child: CircleAvatar(
+                        radius: 8,
+                        backgroundColor: Colors.red,
+                        child:
+                            Text('${context.watch<ShopList>().cartCount}',
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w600,
+                                )),
+                      ),
+                      left: 15,
+                      top: 0,
+                      bottom: 12,
+                    ),
+                  ],
+                )
               )
         ],
       ),
@@ -59,13 +61,13 @@ class HomeScreen extends StatelessWidget {
             leading: Container(
                 width: 40,
                 height: 40,
-                color: Colors.red //change to value from items list
-                // context.read<ShopList>().items[index].color,
+                color: //change to value from items list
+                 context.read<ShopList>().items[index].color,
                 ),
             //item name
             title: Text(
-              '',
-              // context.read<ShopList>().items[index].name,
+              
+           context.read<ShopList>().items[index].name,
               style: TextStyle(
                 fontSize: 18,
               ),
@@ -78,38 +80,36 @@ class HomeScreen extends StatelessWidget {
                   IconButton(
                       color: Colors.blue.shade900,
                       onPressed: () {
-                        // context
-                        //     .read<ShopList>()
-                        //     .addToCart(context.read<ShopList>().items[index]);
-                        // print(context.read<ShopList>().cartItems);
+                        context
+                            .read<ShopList>()
+                            .addToCart(context.read<ShopList>().items[index]);
+                        print(context.read<ShopList>().cartItems);
                       },
                       icon: Icon(Icons.add_circle)),
                   //item count
                   Text(
-                    '',
-                    // '${context.watch<ShopList>().items[index].count}',
+                    '${context.watch<ShopList>().items[index].count}',
                     style: TextStyle(
                       fontSize: 18,
                     ),
-                  ),
-                  IconButton(
+                  ),                  IconButton(
                       color: Colors.blue.shade900,
                       onPressed:
                           //conditionally enable/disable button
-                          // context.watch<ShopList>().items[index].count == 0
-                          //         ? null
-                          //         :
+                          context.watch<ShopList>().items[index].count == 0
+                                  ? null
+                                  :
                           () {
-                        // context.read<ShopList>().removeFromCart(
-                        //     context.read<ShopList>().items[index]);
-                        // print(context.read<ShopList>().cartItems);
+                        context.read<ShopList>().removeFromCart(
+                            context.read<ShopList>().items[index]);
+                        print(context.read<ShopList>().cartItems);
                       },
                       icon: Icon(Icons.remove_circle)),
                 ],
               ),
             )),
-        itemCount: 1, //provide item count
-        // context.read<ShopList>().itemCount
+        itemCount:  //provide item count
+         context.read<ShopList>().itemCount
       ),
     );
   }
