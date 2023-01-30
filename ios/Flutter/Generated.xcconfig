@@ -1,6 +1,6 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=C:\Users\Ashna\flutter file\flutter
-FLUTTER_APPLICATION_PATH=D:\backup16-08-2020\AndroidStudioProjects\state_management_provider
+FLUTTER_ROOT=C:\Users\JONA\Documents\flutter_windows_2.5.3-stable\flutter
+FLUTTER_APPLICATION_PATH=D:\PROGRAMMING\FLUTTER\RETURN\ColourCart\Provider-state-management-demo
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_TARGET=lib\main.dart
 FLUTTER_BUILD_DIR=build
